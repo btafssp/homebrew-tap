@@ -1,6 +1,6 @@
 cask "verbamac" do
-  version "1.0.3"
-  sha256 "cf76413976e3ea92d35f4fe46efe5c483511dea3e2852ad8802f301ad4f90e53"
+  version "1.0.4"
+  sha256 "a1f288ba0cb4c782c155ad5132aecc0b3fea264912b48686dc7a3786220e5b56"
 
   url "https://github.com/btafssp/VerbaMac/releases/download/v#{version}/VerbaMac-#{version}.zip"
   name "VerbaMac"
