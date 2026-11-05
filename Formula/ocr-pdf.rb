@@ -1,8 +1,8 @@
 class OcrPdf < Formula
   desc "OCR scanned PDFs from Finder with Kraken"
   homepage "https://github.com/btafssp/ocr-pdf-mac"
-  url "https://github.com/btafssp/ocr-pdf-mac/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "9c9e57064f3ac78e2156d9d796841ba3ae3a91c7bd58dcb5d44f4107399c89ad"
+  url "https://github.com/btafssp/ocr-pdf-mac/archive/refs/tags/v0.2.15.tar.gz"
+  sha256 "5a044ea94e3d4a9226735682dabcab924dd60ff898abe6d6a5d58bf0d926c5e9"
   license "GPL-3.0-only"
 
   depends_on arch: :arm64
@@ -17,6 +17,12 @@ class OcrPdf < Formula
     bin.install "bin/ocr-pdf-setup"
     bin.install "bin/ocr-pdf-update"
     pkgshare.install "share/ocr-pdf/VERSION"
+    pkgshare.install "share/ocr-pdf/correct_alto.py"
+    pkgshare.install "share/ocr-pdf/translate_txt.py"
+    pkgshare.install "share/ocr-pdf/abstract_txt.py"
+    pkgshare.install "share/ocr-pdf/fm_text.py"
+    pkgshare.install "share/ocr-pdf/fm_worker.sh"
+    pkgshare.install "share/ocr-pdf/dicts"
     pkgshare.install "share/ocr-pdf/requirements.txt"
     pkgshare.install "share/ocr-pdf/make-smoke-pdf.py"
     pkgshare.install "share/ocr-pdf/local.kraken.update.plist"
@@ -42,6 +48,12 @@ class OcrPdf < Formula
     assert_match version.to_s, shell_output("#{bin}/ocr-pdf-setup --version")
     assert_path_exists pkgshare/"requirements.txt"
     assert_path_exists pkgshare/"make-smoke-pdf.py"
+    assert_path_exists pkgshare/"correct_alto.py"
+    assert_path_exists pkgshare/"translate_txt.py"
+    assert_path_exists pkgshare/"abstract_txt.py"
+    assert_path_exists pkgshare/"fm_text.py"
+    assert_path_exists pkgshare/"fm_worker.sh"
+    assert_path_exists pkgshare/"dicts"
     assert_path_exists pkgshare/"OCR PDF.workflow/Contents/document.wflow"
   end
 end
